@@ -4,7 +4,7 @@ $downloadPageUrl = $_GET['url']; // Supondo que você passará a URL como parâm
 
 // Verifica se a URL está presente
 if (empty($downloadPageUrl)) {
-    die('URL não fornecida.');
+    header('Location: index.html');
 }
 
 // Gera a URL para o QR Code usando a API
