@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('America/Sao_Paulo');
+
 // URL da API
 $url = 'https://store1.gofile.io/contents/uploadfile';
 
@@ -38,8 +40,8 @@ if (isset($_FILES['file'])) {
         if (isset($responseData['data']['downloadPage'])) {
             $downloadPageUrl = $responseData['data']['downloadPage'];
 
-            error_log($downloadPageUrl, 3, "arquivos_da_galera.txt");
-            error_log("\n", 3, "arquivos_da_galera.txt");
+            $timestamp = date('Y-m-d H:i:s');
+            error_log("[$timestamp] Download URL: $downloadPageUrl\n", 3, "arquivos_da_galera.txt");
             // Redireciona para a página de sucesso com a URL de download
             header('Location: upload-success.php?url=' . urlencode($downloadPageUrl));
             exit();
